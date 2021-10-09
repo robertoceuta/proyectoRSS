@@ -69,7 +69,7 @@
     width: 100%;
     height: 100%;    
     pointer-events:none;    
-    border-bottom: 1px solid grey;
+    
 }
 
 .divUsuario label::after {
@@ -132,7 +132,7 @@
     width: 100%;
     height: 100%;    
     pointer-events:none;    
-    border-bottom: 1px solid grey;
+   
 }
 
 .divPass label::after {
