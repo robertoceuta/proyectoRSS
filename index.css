@@ -1,0 +1,52 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.barraNav{
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    background: rgb(62, 178, 255);
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenidoTituloNav{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: cornsilk;
+}
+
+.listaNav{
+    
+
+}
+#lista {
+    width: 50vw;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    list-style: none;
+}
+#lista a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.panel{
+    display: flex;
+    font-family: 'Quicksand', sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    background-color: cornflowerblue;
+    width: 20vw;
+    height: 15vh;
+    margin-left: 55%;
+    display:none;
+}

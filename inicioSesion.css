@@ -1,0 +1,222 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.contenedorPrincipal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo{
+    height: 80vh;
+    width: 60vw;
+
+}
+
+.panelInicioSesion{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: flex-start;
+    height: 80vh;
+    width: 40vw;
+    background: black;
+}
+.pieDePagina{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    background: black;
+    
+   
+}
+
+.formulario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 25vh;
+}
+
+.divUsuario {    
+    position: relative;
+    width: 33vw;
+    margin-left: 2vw;
+    overflow:hidden;  
+}
+
+.divUsuario input {
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;   
+    font-size: 16px;
+    padding-left: 0.25vw;
+    border: 0px;
+    font-weight: bold;
+    height: 5vh;
+    background: rgb(100, 160, 230);
+    color: black;
+    padding-top: 1.5vh;
+    border-bottom: 3px solid rgb(218, 218, 60);
+    outline: none;
+}
+
+.divUsuario label {  
+    position: absolute;  
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;    
+    pointer-events:none;    
+    
+}
+
+.divUsuario label::after {
+    content:"";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    border-bottom: 4px solid  rgb(2, 90, 190);
+    left:0;
+    bottom: -1px;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.contenidoUsuario {
+    position: absolute;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color:black;
+    bottom: 5px;
+    left: 0.3vw;
+    transition: all 0.5s ease;    
+}
+
+.divUsuario input:focus + .cajaUsuario .contenidoUsuario,
+ .divUsuario input:valid + .cajaUsuario .contenidoUsuario{
+    transform: translateY(-2.5vh);
+    font-size: 14px;
+    color:  rgb(218, 218, 60);
+}
+
+.divUsuario input:focus + .cajaUsuario::after,
+.divUsuario input:valid + .cajaUsuario::after{
+    transform: translateX(0%);
+}
+
+.divPass {    
+    position: relative;
+    width: 33vw;
+    margin-left: 2vw;
+    overflow:hidden;  
+}
+
+.divPass input {
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;   
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 0.25vw;
+    height: 5vh;
+    border: 0px;
+    background: rgb(100, 160, 230);    
+    padding-top: 1.5vh;
+    border-bottom: 3px solid rgb(218, 218, 60);
+    color: black;
+    padding-top: 1.5vh;    
+    outline: none;
+}
+
+.divPass label {  
+    position: absolute;  
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;    
+    pointer-events:none;    
+   
+}
+
+.divPass label::after {
+    content:"";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    border-bottom: 4px solid  rgb(2, 90, 190);
+    left:0;
+    bottom: -1px;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.contenidoPass {
+    position: absolute;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color:black;
+    bottom: 5px;
+    left: 0.3vw;
+    transition: all 0.5s ease;    
+}
+
+.divPass input:focus + .cajaPass .contenidoPass,
+ .divPass input:valid + .cajaPass .contenidoPass{
+    transform: translateY(-2.5vh);
+    font-size: 14px;
+    color:  rgb(218, 218, 60);
+}
+
+.divPass input:focus + .cajaPass::after,
+.divPass input:valid + .cajaPass::after{
+    transform: translateX(0%);
+}
+.divBoton{
+    width: 33vw;
+    margin-left: 2vw;
+}
+
+.botonEnviar{
+    width: 8vw;
+    height: 4vh;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: cornsilk;
+    border-radius: 3vw;
+    border: 0px;
+    background:rgb(62, 178, 255) ;
+    transition: all 0.7s ease; 
+}
+
+.botonEnviar:hover{
+    background: rgb(218, 218, 60);
+    color: black;
+    transition: all 0.7s ease; 
+}
+
+.pieDePagina p a{
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    color: grey;
+}
+
+.tituloEntrada{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: cornsilk;
+    margin-left: 2vw;
+}
+
+.tituloInicioSesion{    
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    color: cornsilk;
+    margin-left: 2vw;
+}
