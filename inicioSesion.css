@@ -61,7 +61,7 @@
     background: rgb(100, 160, 230);
     color: black;
     padding-top: 1.5vh;
-    border-bottom: 3px solid rgb(218, 218, 60);
+    border-bottom: 2px solid cornsilk;
     outline: none;
 }
 
@@ -101,7 +101,7 @@
  .divUsuario input:valid + .cajaUsuario .contenidoUsuario{
     transform: translateY(-2.5vh);
     font-size: 14px;
-    color:  rgb(218, 218, 60);
+    color: cornsilk;
 }
 
 .divUsuario input:focus + .cajaUsuario::after,
@@ -126,7 +126,7 @@
     border: 0px;
     background: rgb(100, 160, 230);    
     padding-top: 1.5vh;
-    border-bottom: 3px solid rgb(218, 218, 60);
+    border-bottom: 2px solid cornsilk;
     color: black;
     padding-top: 1.5vh;    
     outline: none;
@@ -168,7 +168,7 @@
  .divPass input:valid + .cajaPass .contenidoPass{
     transform: translateY(-2.5vh);
     font-size: 14px;
-    color:  rgb(218, 218, 60);
+    color:  cornsilk;
 }
 
 .divPass input:focus + .cajaPass::after,
@@ -194,7 +194,7 @@
 }
 
 .botonEnviar:hover{
-    background: rgb(218, 218, 60);
+    background: cornsilk;
     color: black;
     transition: all 0.7s ease; 
 }
