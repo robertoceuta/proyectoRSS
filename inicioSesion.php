@@ -49,7 +49,7 @@
                     </label>
                 </div>
                 <div class="divBoton">
-                    <input type="submit" class="botonEnviar" name="login"></input>
+                    <input type="submit" class="botonEnviar" name="login">Enviar</input>
                 </div>
             </form>
         </div>
