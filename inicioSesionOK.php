@@ -1,17 +1,3 @@
-<?php   
-require ('conexionBD.php');
-    if(isset($_REQUEST['login'])){
-        $usuario=$_REQUEST['usuario'];
-        $pass=$_REQUEST['pass'];
-        $consulta="select email, pass from usuarios where email = '$usuario'";
-        $resultadoConsulta= mysqli_query($bd, $consulta);
-        var_dump($resultadoConsulta);
-        $filaConsulta=mysqli_fetch_assoc($resultadoConsulta);
-        if($pass == $filaConsulta['pass']){
-            header('Location:inicioSesionOK.php');
-        }
-    }
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,26 +28,10 @@ require ('conexionBD.php');
         <img src="Twitter-Feature.jpg" alt="fotoTwitter" class="fondo">
         <div class="panelInicioSesion">
             <span class="tituloEntrada">Lo que está pasando ahora.</span>
-            <h1 class="tituloInicioSesion">Inicia Sesión</h1>
-            <form  class="formulario" method="POST">
-                <div class="divUsuario">
-                    <input type="text" name="usuario" autocomplete="off" required>  
-                    <label for="usuario" class="cajaUsuario">
-                        <span class="contenidoUsuario">Usuario</span>
-                    </label>
-                </div>
-                <div class="divPass">
-                    <input type="password" name="pass" autocomplete="off" required>  
-                    <label for="pass" class="cajaPass">
-                        <span class="contenidoPass">Contraseña</span>
-                    </label>
-                </div>
-                <div class="divBoton">
-                    <input type="submit" class="botonEnviar" name="login" value="Acceder">
-                </div>
+            <h1 class="tituloInicioSesion">Bienvenido!!!</h1>
+            
             </form>
         </div>
-        
     </div>
     <script src="index.js"></script>
 </body>
