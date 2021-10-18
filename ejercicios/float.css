@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.derechaArriba{
+    border: 5px solid black;
+    margin-right: 5%;
+    float: right;
+    height: 15%;
+    width: 50%;
+}
+.imagenArribaIzquierda{
+    float: left;
+    width: 50%;
+    height: 40%;
+}
+.imagenAbajoDerecha{
+    margin-top: 25%;
+    float: right;
+    width: 50%;
+    height: 40%;
+}
+
+.centroMedio{
+    margin-top: 3%;
+    border: 5px solid black;
+    margin-left: 15%;
+    float: left;
+    height: 25%;
+    width: 50%;
+}
+
+.contenedor{
+    float: left;
+    width: 50%;
+    border-right: 5px solid black;
+}
+.imagenConTexto{
+    margin-left: 10%;
+    height: 30%;
+    width: 40%;
+}
+
+.parrafo{
+    
+    width: 100%;
+}
+
+.derechaAbajo{
+    margin-top: 3%;
+    border: 5px solid black;
+    
+    float: right;
+    height: 25%;
+    width: 45%;
+}
+
+.textoIzquieda{
+    float: left;
+    width: 50%;
+    border-right: 5px solid black;
+    padding-bottom: 10%;
+}
+
+.textoDerecha{
+    margin-top: 10%;
+    float: right;
+    width: 50%;
+   
+}

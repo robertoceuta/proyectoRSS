@@ -1,5 +1,6 @@
 <?php   
 require ('conexionBD.php');
+session_start();
     if(isset($_REQUEST['login'])){
         $usuario=$_REQUEST['usuario'];
         $pass=$_REQUEST['pass'];
@@ -8,6 +9,9 @@ require ('conexionBD.php');
         var_dump($resultadoConsulta);
         $filaConsulta=mysqli_fetch_assoc($resultadoConsulta);
         if($pass == $filaConsulta['pass']){
+            $_SESSION['nombreLog']=$usuario;
+            $_SESSION['passLog']=$pass;
+            echo "Hola $usuario";
             header('Location:inicioSesionOK.php');
         }
     }
