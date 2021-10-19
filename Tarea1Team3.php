@@ -43,7 +43,20 @@ else{
     <label for="nombre">
     <input type="text" name="nombre"/>
     <label for="edad">
-    <input type="text" name="edad"/>
+    <select  name="edad">
+        
+        <?php
+        $edad = 0;
+        while($edad <=100){           
+        
+        ?>
+        <option ><?php echo ("$edad");?></option>
+        <?php
+            $edad++;
+        }
+        ?>
+        </select>
+    
     <label for="vivo">
     <select name="vivo">
         <option>Selecciona</option>

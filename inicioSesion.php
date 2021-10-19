@@ -1,26 +1,14 @@
 <?php   
-require ('conexionBD.php');
+require ('resources\controllers\conexionBD.php');
 session_start();
-    if(isset($_REQUEST['login'])){
-        $usuario=$_REQUEST['usuario'];
-        $pass=$_REQUEST['pass'];
-        $consulta="select email, pass from usuarios where email = '$usuario'";
-        $resultadoConsulta= mysqli_query($bd, $consulta);
-        var_dump($resultadoConsulta);
-        $filaConsulta=mysqli_fetch_assoc($resultadoConsulta);
-        if($pass == $filaConsulta['pass']){
-            $_SESSION['nombreLog']=$usuario;
-            $_SESSION['passLog']=$pass;
-            echo "Hola $usuario";
-            header('Location:inicioSesionOK.php');
-        }
-    }
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="inicioSesion.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="resources\css\index.css">
+    <link rel="stylesheet" href="resources\css\inicioSesion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
@@ -46,8 +34,14 @@ session_start();
         <img src="Twitter-Feature.jpg" alt="fotoTwitter" class="fondo">
         <div class="panelInicioSesion">
             <span class="tituloEntrada">Lo que está pasando ahora.</span>
+            <?php
+                if(!isset($_SESSION['nombreLog'])){
+
+                
+
+            ?>
             <h1 class="tituloInicioSesion">Inicia Sesión</h1>
-            <form  class="formulario" method="POST">
+            <form  class="formulario" method="POST" action="resources\controllers\conexionBD.php">
                 <div class="divUsuario">
                     <input type="text" name="usuario" autocomplete="off" required>  
                     <label for="usuario" class="cajaUsuario">
@@ -64,6 +58,16 @@ session_start();
                     <input type="submit" class="botonEnviar" name="login" value="Acceder">
                 </div>
             </form>
+            <?php
+                }
+                else{
+                    
+                
+            ?>
+            <h1 class="tituloInicioSesion">Bienvenido</h1>
+            <?php
+                }
+            ?>
         </div>
         
     </div>
