@@ -3,7 +3,7 @@ $(document).ready(function(){
         $(".panel").slideToggle("slow");
     });
 });
-var lista = document.getElementById('lista');
+/*var lista = document.getElementById('lista');
 const botonesLista = ['Inicio', 'Explorar', 'Notificaciones', 'Mensajes', 'Guardados', 'Lista'];
 
 for(let i=0; i<botonesLista.length; i++){
@@ -15,4 +15,4 @@ for(let i=0; i<botonesLista.length; i++){
    enlace.innerHTML=botonesLista[i];
    lista.append(elemento);
    elemento.append(enlace);
-};
+};*/

@@ -42,6 +42,71 @@
     flex-direction: column;
     height: 25vh;
 }
+.divEmail {    
+    position: relative;
+    width: 33vw;
+    margin-left: 2vw;
+    overflow:hidden;  
+}
+
+.divEmail input {
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;   
+    font-size: 16px;
+    padding-left: 0.25vw;
+    border: 0px;
+    font-weight: bold;
+    height: 5vh;
+    background: rgb(100, 160, 230);
+    color: black;
+    padding-top: 1.5vh;
+    border-bottom: 2px solid cornsilk;
+    outline: none;
+}
+
+.divEmail label {  
+    position: absolute;  
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;    
+    pointer-events:none;    
+    
+}
+
+.divEmail label::after {
+    content:"";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    border-bottom: 4px solid  rgb(2, 90, 190);
+    left:0;
+    bottom: -1px;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.contenidoEmail {
+    position: absolute;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color:black;
+    bottom: 5px;
+    left: 0.3vw;
+    transition: all 0.5s ease;    
+}
+
+.divEmail input:focus + .cajaEmail .contenidoEmail,
+ .divEmail input:valid + .cajaEmail .contenidoEmail{
+    transform: translateY(-2.5vh);
+    font-size: 14px;
+    color: cornsilk;
+}
+
+.divEmail input:focus + .cajaEmail::after,
+.divEmail input:valid + .cajaEmail::after{
+    transform: translateX(0%);
+}
 
 .divUsuario {    
     position: relative;
@@ -177,6 +242,12 @@
 }
 .divBoton{
     width: 33vw;
+    margin-left: 2vw;
+}
+
+.mensajeError{
+    color:cornsilk;
+    font-family: 'Quicksand', sans-serif;
     margin-left: 2vw;
 }
 
