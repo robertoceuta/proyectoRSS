@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unidad2Tarea1</title>
+</head>
+
+<body>
+    <h1 id="tit"></h1>
+    <h2 id="tit2"></h2>
+    <h1 class="tit3"></h1>
+<script>
+
+
+        let hoy = new Date();
+        let ss = hoy.getSeconds();
+        let dd = hoy.getDate();
+        let mm = hoy.getMonth() + 1;
+        let yyyy = hoy.getFullYear();
+
+
+        let fin = new Date(2022, 00, 01, 00, 00,00);
+        let ss2 = fin.getSeconds();
+        let dd2 = fin.getDate();
+        let mm2 = fin.getMonth() + 1;
+        let yyyy2 = fin.getFullYear();
+
+
+        let hacheUno = document.getElementById('tit');
+        hacheUno.innerHTML = ss + " " + dd + " " + mm + " " + yyyy
+        let hacheDos = document.getElementById('tit2');
+        hacheDos.innerHTML = ss2+" "+dd2 + " " + mm2 + " " + yyyy2;
+
+        let resta =
+
+</script>
+</body>
+
+</html>

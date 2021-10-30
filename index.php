@@ -1,7 +1,7 @@
 <?php
 session_start();
 require ('resources/controllers/conexionBD.php')
-$query="SELECT contenido FROM tuit JOIN seguidores ON seguidores.seguidor_id = $_SESSION['claveLog'] where ";
+//$query="SELECT contenido FROM tuit JOIN seguidores ON seguidores.seguidor_id = $_SESSION['claveLog'] where ";
 ?>
 
 <!doctype html>
