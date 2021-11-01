@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Inicio</title>
+    <title>Bienvenido</title>
 </head>
 <body>
   <!--  <div class="container-fluid ">
@@ -30,7 +30,7 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- MENSAJES CON PHP -->
   <!--  <div class="col-sm-4 align-self-center d-flex flex-column align-items-center">
@@ -40,13 +40,91 @@
 
 </div> -->
 
-    <div class="container-fluid">
-        <div class="row row-cols-2 justify-content-end">
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
-        </div>
-    </div>
+  <nav class="navbar navbar-light bg-light">
+      <div class="container">
+          <a class="navbar-brand" href="inicio.php">
+              <img src="resources/img/owl-47526.svg" alt="buho" width="70" height="70">
+          </a>
+      </div>
+  </nav>
+
+  <div class="container">
+      <div class="row ">
+          <div class="col-12">&nbsp;</div>
+
+      </div>
+  </div>
+
+  <div class="container">
+      <div class="row ">
+          <div class="col-10 col-md-6 d-flex flex-column align-items-center justify-content-center " ><h2>Tareas Pendientes</h2>
+              <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <div class="card text-center">
+                              <div class="card-header">
+                                  Evento Extraescolar
+                              </div>
+                              <div class="card-body" >
+                                  <h5 class="card-title">Excursión Granja Escuela</h5>
+                                  <p class="card-text">¡Hola papás y mamás! En la medida de lo posible hay que llevar a los peques con ropa oscura (pantalón y camiseta negros) para poder diseñar los disfraces en clase. ¡Un saludo!</p>
+                                  <a href="#" class="btn btn-primary">Más Información</a>
+                              </div>
+                              <div class="card-footer text-muted">
+                                  Hace 1 día
+                              </div>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                          <div class="card text-center">
+                              <div class="card-header">
+                                  Disfraces Halloween
+                              </div>
+                              <div class="card-body" >
+                                  <h5 class="card-title">Fiesta de Halloween</h5>
+                                  <p class="card-text">¡Hola papás y mamás! En la medida de lo posible hay que llevar a los peques con ropa oscura (pantalón y camiseta negros) para poder diseñar los disfraces en clase. ¡Un saludo!</p>
+                                  <a href="#" class="btn btn-primary">Más Información</a>
+                              </div>
+                              <div class="card-footer text-muted">
+                                  Hace 6 días
+                              </div>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                          <div class="card text-center">
+                              <div class="card-header">
+                                  Medidas anti CoVid-19
+                              </div>
+                              <div class="card-body" >
+                                  <h5 class="card-title">Protocolo a seguir</h5>
+                                  <p class="card-text">¡Hola papás y mamás! En la medida de lo posible hay que llevar a los peques con ropa oscura (pantalón y camiseta negros) para poder diseñar los disfraces en clase. ¡Un saludo!</p>
+                                  <a href="#" class="btn btn-primary">Más Información</a>
+                              </div>
+                              <div class="card-footer text-muted">
+                                  Hace 6 días
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+          </div>
+
+          <div class="col-10 col-md-6 d-flex flex-column align-items-center justify-content-center"> Columna</div>
+
+          <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">Column</div>
+
+      </div>
+  </div>
+
+
 
 
 

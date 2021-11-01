@@ -22,7 +22,7 @@
                     <h3>¿No estás registrado?</h3>
                     <h1 style="margin-bottom: 0.5em">¡Regístrate ahora!</h1>
                     <!-- FORMULARIO DE REGISTRO -->
-                    <form class="formulario ">
+                    <form class="formulario col-10 col-md-7" >
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="inputNombre" name="nombre">
@@ -69,12 +69,12 @@
                 </div>
            <!-- </div> -->
            <!-- <div class="">-->
-                <div class="formLogin col-sm-6 align-self-center d-flex flex-column align-items-center">
+                <div class="formLogin col-10 col-md-4 align-self-center d-flex flex-column align-items-center justify-content-around border border-1 border-dark shadow-lg p-3 mb-5 bg-white rounded" style=" height: 75vh">
                     <!-- FORMULARIO DE LOGIN-->
-                    <img src="resources/img/owl-47526.svg" class="img-fluid" alt="iconoEscuela" width="150" height="150">
-                    <h3 style="margin-top: 0.5em">Si ya estás registrado</h3>
+                    <img src="resources/img/owl-47526.svg" class="img-fluid d-flex align-self-center " alt="iconoEscuela" width="150" height="150">
+                    <h3 style="margin-bottom: -2.5em">Si ya estás registrado</h3>
                     <h1 style="margin-bottom: 0.5em">Entra ahora</h1>
-                    <form class="formulario">
+                    <form class="formulario col-md-10" ">
                         <div class="mb-3 ">
                             <label for="mailLog" class="form-label">Dirección de Email</label>
                             <input type="email" class="form-control" id="inputMailLog" name="mailLog">
