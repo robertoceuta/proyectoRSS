@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedir cadena de caracteres</title>
+</head>
+<body>
+    <p id="parrafo"></p>
+<!--    Pedir cadena de caracteres.
+        Concatenarlas => si está vacía nada, si no "-".
+        Salir si quiere el usuario.-->
+
+    <script>
+        let cadena =[];
+        let introducido;
+        let parrafo = document.getElementById('parrafo');
+        do{
+            introducido = prompt("Mete una frase");
+            if(introducido!=null){
+                cadena.push(introducido);
+            }
+        }while(confirm("¿desea continuar?")==true);
+        for(let i = 0; i<cadena.length;i++){
+            parrafo.innerHTML+=cadena[i]
+            if(i!=cadena.length-1 && cadena[i]!=""){
+                parrafo.innerHTML+="-";
+            }
+        }
+        console.log(cadena);
+    </script>
+</body>
+</html>

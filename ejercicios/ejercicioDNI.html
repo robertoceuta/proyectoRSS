@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="caja">
+
+</div>
+    <script>
+        let dni = prompt("introduce tu dni sin letra");
+        let comprobar = /^\d+$/.test(dni);
+        let parrafo = document.createElement('p');
+        caja.append(parrafo);
+        parrafo.id = "texto";
+        parrafo.className = "texto";
+        let letras =['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J','Z','S','Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        console.log(letras.length);
+
+        //Almacenar en un variale el número de DNI y en otra la letras que ha indicado;
+        //Si el número es correcto, cogemos el num, lo dividimos entre 23 y, según el módulo resultante, escogeremos una letra dentro del array.
+        //La solución deberá ser pintada en un elemento del html
+        if(dni.length==8 && comprobar == true){
+            let caja = document.getElementById('caja');
+            let modulo = Math.floor(dni%23);
+            let letra = letras[modulo];
+            parrafo.innerHTML = "La letra que corresponde al dni "+dni+" es "+letra+".";
+        }else{
+            parrafo.innerHTML ="La cantidad de número es incorrecta."
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CALIFICACIONES</title>
+</head>
+<body>
+    <!-- Le pediremos al usuarios que introduzca una nota. Según la cantidad introducida diremos qué leyenda tiene -->
+
+    <script>
+        let nota = prompt("Introduce una calificación");
+        let numero = parseInt(nota);
+        console.log(nota);
+        if(/^\d+$/.test(nota) == true){
+            switch(numero){
+                case 0: document.write("LA NOTA "+nota+" CORRESPONDE AL MUY INSUFICIENTE.");break;
+                case 1: document.write("LA NOTA "+nota+" CORRESPONDE AL MUY INSUFICIENTE.");break;
+                case 2: document.write("LA NOTA "+nota+" CORRESPONDE AL MUY INSUFICIENTE.");break;
+                case 3: document.write("LA NOTA "+nota+" CORRESPONDE AL INSUFICIENTE.");break;
+                case 4: document.write("LA NOTA "+nota+" CORRESPONDE AL INSUFICIENTE.");break;
+                case 5: document.write("LA NOTA "+nota+" CORRESPONDE AL SUFICIENTE.");break;
+                case 6: document.write("LA NOTA "+nota+" CORRESPONDE AL BIEN.");break;
+                case 7: document.write("LA NOTA "+nota+" CORRESPONDE AL NOTABLE.");break;
+                case 8: document.write("LA NOTA "+nota+" CORRESPONDE AL NOTABLE.");break;
+                case 9: document.write("LA NOTA "+nota+" CORRESPONDE AL SOBRESALIENTE.");break;
+                case 10: document.write("LA NOTA "+nota+" CORRESPONDE AL SOBRESALIENTE.");break;
+                default: document.write("EL VALOR INTRODUCIDO NO ENTRA EN LOS PARÁMETROS CALIFICABLES");
+            }
+        }else if(/^[a-zA-Z]+$/.test(nota)){
+            document.write("ERROR: PARECE QUE HAS INTRODUCIDO LETRAS");
+        }else {
+            document.write("ERROR: PARECE QUE HAS INTRODUCIDO UN NÚMEROS Y LETRAS");
+        };
+
+    </script>
+</body>
+</html>

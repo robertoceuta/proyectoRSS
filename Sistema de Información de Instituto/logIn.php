@@ -1,4 +1,9 @@
+<?php
+require ('resources/controllers/database.php');
 
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -76,7 +81,7 @@
                     <h1 style="margin-bottom: 0.5em">Entra ahora</h1>
                     <form class="formulario col-md-10" ">
                         <div class="mb-3 ">
-                            <label for="mailLog" class="form-label">Dirección de Email</label>
+                            <label for="mailLog" class="form-label">Nombre de Usuario</label>
                             <input type="email" class="form-control" id="inputMailLog" name="mailLog">
                         </div>
                         <div class="mb-3">
@@ -91,8 +96,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?v3=exp.&libraries=places&key=AIzaSyAN5m-SWnJ7_0qFg-Je7LYP0OEdolrdi0Y"></script>
-    <script src="resources/js/aucompletarDirecciones.js"></script>
+
     <script>
         var prov = document.getElementById('ps-prov');
         var mun = document.getElementById('ps-mun');

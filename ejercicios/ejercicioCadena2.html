@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <!-- Pediremos:
+        Numero de columnas,
+        número de filas,
+        y contruiremos
+        ****
+        ****
+        ****
+        ****
+        algo así -->
+
+    <script>
+        let columna = prompt("cuantas columnas tendrá");
+        let filas = prompt("cuantas filas tendrá");
+
+        for(let i =0; i < filas;i++){
+            document.write("<br/>");
+            for(let y = 0; y<columna;y++){
+                if((columna*i)+y<=9){
+                    document.write("&nbsp;&nbsp;&nbsp;"+((columna*i)+y));
+                }
+                document.write((columna*i)+y+"&nbsp;&nbsp;&nbsp;&nbsp;");
+            }
+        }
+    </script>
+</body>
+</html>
