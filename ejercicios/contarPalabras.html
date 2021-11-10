@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contar Palabras</title>
+</head>
+<body>
+    <script>
+        let box = prompt("Introduce una oración cualquiera.");
+        let arr = box.split(' ');
+        let filtrado;
+        function estaVacio(elemento) {
+            return elemento != "";
+        }
+        for(let i =0; i<arr.length; i++){
+            filtrado = arr.filter(estaVacio);
+        }
+        document.write('Hay '+filtrado.length+' palabras en tu oración.');
+    </script>
+</body>
+</html>

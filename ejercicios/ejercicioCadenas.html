@@ -5,28 +5,24 @@
     <title>Pedir cadena de caracteres</title>
 </head>
 <body>
-    <p id="parrafo"></p>
-<!--    Pedir cadena de caracteres.
-        Concatenarlas => si está vacía nada, si no "-".
-        Salir si quiere el usuario.-->
-
     <script>
-        let cadena =[];
-        let introducido;
-        let parrafo = document.getElementById('parrafo');
+        let cadena =[]; let final; let introducido;
         do{
             introducido = prompt("Mete una frase");
             if(introducido!=null){
                 cadena.push(introducido);
             }
         }while(confirm("¿desea continuar?")==true);
-        for(let i = 0; i<cadena.length;i++){
-            parrafo.innerHTML+=cadena[i]
-            if(i!=cadena.length-1 && cadena[i]!=""){
-                parrafo.innerHTML+="-";
+        function estaVacio(elemento) {
+            return elemento != "";
+        }
+        final=cadena.filter(estaVacio);
+        for(let i = 0; i<final.length;i++){
+            document.write(final[i]);
+            if(i<final.length-1){
+                document.write('-');
             }
         }
-        console.log(cadena);
     </script>
 </body>
 </html>

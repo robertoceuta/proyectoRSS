@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ejercicio DNI</title>
 </head>
 <body>
 <div id="caja">
 
 </div>
     <script>
-        let dni = prompt("introduce tu dni sin letra");
+        let dni = prompt("Introduce tu dni sin letra");
+        let letraDni = prompt("Introduce la letra de tu dni")
         let comprobar = /^\d+$/.test(dni);
+        let caja = document.getElementById('caja');
         let parrafo = document.createElement('p');
         caja.append(parrafo);
-        parrafo.id = "texto";
-        parrafo.className = "texto";
         let letras =['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J','Z','S','Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
-        console.log(letras.length);
-
-        //Almacenar en un variale el número de DNI y en otra la letras que ha indicado;
-        //Si el número es correcto, cogemos el num, lo dividimos entre 23 y, según el módulo resultante, escogeremos una letra dentro del array.
-        //La solución deberá ser pintada en un elemento del html
-        if(dni.length==8 && comprobar == true){
-            let caja = document.getElementById('caja');
+        if((Number(dni) < 0 || Number(dni) > 99999999) || (comprobar==false || dni.length!=8)){
+            alert("Vuelva a intentarlo.")
+            parrafo.innerHTML ="Valores incorrectos, vuélvalo a intentar."
+        }else{
             let modulo = Math.floor(dni%23);
             let letra = letras[modulo];
-            parrafo.innerHTML = "La letra que corresponde al dni "+dni+" es "+letra+".";
-        }else{
-            parrafo.innerHTML ="La cantidad de número es incorrecta."
+            if((letra != letraDni) && (letra.toLowerCase() != letraDni)){
+                parrafo.innerHTML ="DATOS ERRONEOS <br/> La letra "+letraDni.toUpperCase()+" introducida no corresponde al número de DNI "+dni;
+            }else{
+                parrafo.innerHTML ="DATOS CORRECTOS <br/> Para el DNI número "+dni+" introducido, sí corresponde la letra "+letra;
+            }
         }
     </script>
 </body>
