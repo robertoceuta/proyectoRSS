@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apuntes</title>
+</head>
+<body>
+<div id="caja">
+
+</div>
+   <!-- <script type="text/javascript">
+        function calcularPrecio(impuesto,suma){ var precio=prompt("Precio del producto");
+            if(isNaN(precio)){ alert("No has introducido un numero"); return false;
+            }else{
+                var precioConIVA=parseFloat(precio)*(1+ impuesto /100);
+                alert("El precio con el impuesto es "+precioConIVA);
+                return true;
+            }
+        }
+        var impuesto=prompt("Cual es el impuesto a aplicar");
+        calcularPrecio(impuesto);
+    </script>-->
+
+  <!-- <script>
+       function suma (a, b,c){
+           alert(a+b)
+       }
+       suma(2,3);
+   </script>-->
+
+   <script>
+      // let filas = prompt("Introduce filas");
+      // let columnas = prompt ("introduce columnas");
+
+       /*function calcular (f, c){
+           for(let i =0; i < f;i++){
+               document.write("<br/>");
+               for(let y = 0; y<c;y++){
+                   if((c*i)+y<=9){
+                       document.write("&nbsp;&nbsp;&nbsp;"+((c*i)+y));
+                   }else{
+                       document.write((c*i)+y+"&nbsp;&nbsp;&nbsp;&nbsp;");
+                   }
+
+               }
+           }
+       }
+      // calcular(filas, columnas);
+
+       let calculo = (f,c) => {
+           for(let i =0; i < f;i++){
+               document.write("<br/>");
+               for(let y = 0; y<c;y++){
+                   if((c*i)+y<=9){
+                       document.write("&nbsp;&nbsp;&nbsp;"+((c*i)+y));
+                   }else{
+                       document.write((c*i)+y+"&nbsp;&nbsp;&nbsp;&nbsp;");
+                   }
+
+               }
+           }
+       }
+       calculo(filas, columnas);*/
+
+      //Cada alumno se guardará el nombre y la edad.
+      let opciones = ['Ordenar por nombre', 'Ordenar por edad'];
+      let caja = document.getElementById('caja');
+      let atributos = [
+          nombre =[],
+          edad = []
+      ];
+
+      for (let i = 0; i<opciones.length; i++) {
+          let boton = document.createElement('button');
+          boton.innerHTML = opciones[i];
+          if (opciones[i] == 'Ordenar por edad') {
+              boton.onclick = (a, b) => {
+                  return a - b
+              }
+          } else {
+              boton.onclick = () => {
+                  document.write(atributos[0].sort());
+              };
+              caja.append(boton);
+          }
+      }
+
+      do{
+          atributos[0].push(prompt("Nombre del alumno"));
+          atributos[1].push(parseInt(prompt("Edad del alumno")));
+      }while(confirm("¿Incluir más alumnos?")==true);
+
+
+
+
+
+
+
+
+   </script>
+</body>
+</html>
