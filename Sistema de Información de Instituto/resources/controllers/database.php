@@ -11,7 +11,7 @@ class Database{
         $this->password=$password;
         $this->bdname=$bdname;
     }
-    function connectSelect($query){
+    function querySelect($query){
         $mysqli = new mysqli($this->localhost, $this->username, $this->password, $this->bdname);
 
         if($mysqli->connect_error){
@@ -25,7 +25,7 @@ class Database{
 
     }
 
-     function connectInsert($query){
+     function queryInsert($query){
          $mysqli = new mysqli($this->localhost, $this->username, $this->password, $this->bdname);
 
          if ($mysqli->connect_error) {
