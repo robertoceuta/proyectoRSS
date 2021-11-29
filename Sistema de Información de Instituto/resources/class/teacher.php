@@ -1,5 +1,6 @@
 <?php
-include_once "./../controllers/connectdb.php";
+require_once "./resources/controllers/connectdb.php";
+
 class Teacher {
     private $pk=0;
     private $name=0;

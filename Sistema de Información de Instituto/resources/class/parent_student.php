@@ -1,5 +1,5 @@
 <?php
-include_once('../controllers/connectdb.php');
+require_once "./resources/controllers/connectdb.php";
 class Parent_Student {
     private $pk=0;
     private $parentK=0;

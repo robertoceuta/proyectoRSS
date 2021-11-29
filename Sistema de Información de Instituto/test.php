@@ -1,7 +1,5 @@
 <?php
-include_once "resources/class/teacher.php";
-include_once "resources/controllers/connectdb.php";
-
+require_once "./resources/class/teacher.php";
 $teacher1= new Teacher();
 
 var_dump($teacher1);

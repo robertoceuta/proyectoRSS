@@ -1,5 +1,5 @@
 <?php
-include_once('../controllers/connectdb.php');
+require_once "./resources/controllers/connectdb.php";
 class Document {
     private $pk=0;
     private $messageK=0;

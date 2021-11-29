@@ -1,5 +1,5 @@
 <?php
-include_once('../controllers/connectdb.php');
+require_once "./resources/controllers/connectdb.php";
 class Student {
     private $pk=0;
     private $registration=0;
@@ -16,5 +16,6 @@ class Student {
         $this->lastname2=$last2;
         $this->classroomK=$classroomK;
     }
+
 
 }

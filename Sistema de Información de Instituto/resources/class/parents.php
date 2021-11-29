@@ -1,6 +1,7 @@
 <?php
-include_once('../controllers/connectdb.php');
-class Parent {
+require_once "./resources/controllers/connectdb.php";
+
+class Parents{
     private $pk=0;
     private $name=0;
     private $lastname1=0;
