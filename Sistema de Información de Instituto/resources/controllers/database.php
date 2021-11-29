@@ -20,7 +20,10 @@ class Database{
         }
         echo 'Éxito... ' . $mysqli->host_info . "\n";
         $consulta = $mysqli->query($query);
-        $resultado = $consulta->fetch_array();
+        $resultado = $consulta->fetch_assoc();
+        //var_dump($consulta);
+        var_dump($resultado);
+
         return $resultado;
 
     }

@@ -31,5 +31,12 @@ class Teacher {
     function select($bd,$query){
         $bd->querySelect($query);
     }
+
+    function selectStudents($bd){
+        foreach ($bd->querySelect("select * from student where classroom_key = 1") as $item){
+            $item;
+        }
+
+    }
 }
 ?>

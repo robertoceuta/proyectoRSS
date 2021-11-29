@@ -8,7 +8,7 @@ class Student {
     private $lastname2=0;
     private $classroomK=0;
 
-    function __construct($pk, $resg, $name, $last1, $last2, $classroomK){
+    function __construct($pk=0, $resg=0, $name=0, $last1=0, $last2=0, $classroomK=0){
         $this->pk=$pk;
         $this->registration=$resg;
         $this->name=$name;
@@ -16,6 +16,11 @@ class Student {
         $this->lastname2=$last2;
         $this->classroomK=$classroomK;
     }
+    function select($bd,$teacherKey){
+        $bd->querySelect("select * from student where primary_key = '$teacherKey'");
+    }
+
+
 
 
 }
