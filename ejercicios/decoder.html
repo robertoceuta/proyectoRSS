@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</head>
+<body>
+
+
+
+<script>
+
+
+
+
+function cobra(){
+  var currRow = 'VlRPYmJ6TWorTUYrdFE2L2w5Rmcycmh4SVoyd3JHQjVURHlZRjNMbjFnNmd3QldoNFJzMDNMcUo0b05rSXlmZw==';
+  console.log("leo row");
+  const regex = /^U2Fsd.*/g;
+  console.log("leo regex");
+
+    console.log("entro if");
+    var decodedLink = CryptoJS.AES.decrypt(currRow, "/").toString(CryptoJS.enc.Utf8);
+    console.log(decodedLink);
+
+
+}
+
+cobra();
+</script>
+</body>
+
+
+</html>

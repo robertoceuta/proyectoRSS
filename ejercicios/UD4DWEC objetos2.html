@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jUGADOR</title>
+</head>
+<body>
+
+<script>
+    let nombre = ['rob', 'abde', 'lorena', 'soufyane', 'jesus'];
+    function Personaje (nombre, img, descripcion){
+        this.Nombre = nombre;
+        this.Img = img;
+        this.Descripcion = descripcion;
+    }
+
+    function Pagina (){
+        this.ListaPersonajes = new Array();
+
+        this.MeterPj = function (pj){
+            this.ListaPersonajes.push(pj);
+        }
+
+        this.ListarTodo = function (){
+            for (let i =0; i<this.ListaPersonajes.length; i++){
+                    alert(this.ListaPersonajes[i].Nombre);
+                    alert(this.ListaPersonajes[i].Img);
+                    alert(this.ListaPersonajes[i].Descripcion);
+            }
+
+
+        }
+
+
+        this.ListarPosicion = function (nombre){
+            for(let i =0; i<this.ListaPersonajes.length; i++){
+                if(this.ListaPersonajes[i].Nombre == nombre){
+                    alert("el personaje llamado "+nombre+" se encuentra en la posicion "+i);
+                }
+            }
+        }
+
+        this.ListarCuantos = function (){
+            alert (this.ListaPersonajes.length);
+        }
+    }
+
+    let pagina = new Pagina();
+    for(let i = 0; i<5; i++){
+        let personaje = new Personaje(nombre[i], Math.random()*5, Math.random()*6);
+        pagina.MeterPj(personaje);
+    }
+
+    pagina.ListarTodo();
+    pagina.ListarPosicion('jesus');
+    pagina.ListarCuantos();
+
+    console.log(pagina.ListaPersonajes[0].Nombre);
+
+
+//SOLUCION DE JESUS
+
+    /*class Personaje {
+
+constructor (nombre, img, descripcion){
+this.nombre = nombre,
+this.img = img,
+this.descripcion = descripcion
+}
+
+}
+//CREAR UN PERSONAJE
+const perso1 = new Personaje ("jesus", "avatar,jpg", "que tal");
+
+//AGREGAR PERSONAJE
+const addPerso = (arr, personaje) => arr.push(personaje);
+
+//LISTAR TODOS LOS PERSONAJES
+const listar = (arr) => arr.forEach(elem => console.log(elem));
+
+//CUANTOS PERSONAJES HAY
+const totalPersonajes = (arr) => console.log(arr.length);
+
+//LISTAR POR POSICION
+const listarPos = (pos,arr) => console.log( arr[pos]);
+
+
+const pagina = [];
+
+addPerso(pagina,perso1);
+listar(pagina)
+totalPersonajes(pagina)
+listarPos(0, pagina);*/
+
+</script>
+</body>
+
+</html>

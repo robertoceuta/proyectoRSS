@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jUGADOR</title>
+</head>
+<body>
+
+<script>
+    function Jugador (nombre, puntos, nivel){
+        this.Nombre = nombre;
+        this.Puntos = puntos;
+        this.Nivel = nivel;
+    }
+
+    let jugador = new Jugador("Roberto", "666", "99");
+    console.log(jugador);
+
+    function Dado(){
+        this.Secuencia = new Array();
+
+
+        this.TirarDado = function (){
+            for(let i = 0; i<6; i++){
+                let num = Math.floor(Math.random()*(6));
+                this.Secuencia.push(num);
+                alert("has introducido el numero "+num);
+            }
+
+        }
+
+        this.MostrarSecuencia = function (){
+
+            alert("los números generados han sido "+this.Secuencia);
+        }
+    }
+
+    let dado = new Dado();
+    dado.TirarDado();
+    dado.MostrarSecuencia();
+
+
+</script>
+</body>
+
+</html>
