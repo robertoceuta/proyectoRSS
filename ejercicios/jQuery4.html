@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba Selectores</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<ul id="list1">
+  <li class="a">Item 1</li>
+  <li class="b">Item 2</li>
+  <li class="a">Item 3</li>
+  <li class="b">Item 4</li>
+  <li class="a"></li>
+</ul>
+<p class="class1">Mario</p>
+<p class="paragraph1">Luigi</p>
+<p class="class2">Toad</p>
+<p class="paragraph2">Bowser</p>
+
+<script>
+  console.log($('li[class]')); //selecciona todos los elementos li que tengan clase
+  console.log($('p[class]')); //selecciona todos los elementos p que tengan clase
+  console.log($('li[class=a]')); //selecciona todos los li cuya clase sea a
+  console.log($('p[id=paragraph1]')); // seleccina todos los p cuyo id sea paragraph1
+  console.log($('p[class^=para]')); //selecciona todos los p cuya clase empiece por para
+  console.log($('p[class$=para]')); //selecciona todos los p cuya clase termine en para
+  console.log($('p[class*=agra]')); //selecciona todos los p cuya clase contenga la palabra agra
+  console.log($('li:contains(Item 1)')); //selecciona todos los li que contengan el texto "Item 1"
+  console.log($('li:empty')); //selecciona todos los li vacíos
+  console.log($('li:contains(em)')); //selecciona todos los li que contienen las letras em
+  console.log($(':contains(r)')) //selecciona todos los elementos que contienen una "r", sin importar de qué tipo sean
+
+
+</script>
+</body>
+</html>

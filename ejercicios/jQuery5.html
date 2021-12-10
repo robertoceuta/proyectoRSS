@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>InformaticaPC | eventos de teclado en JQuery</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    body { background-color:lightyellow; }
+    #div1 { color:yellow;background-color:red; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function()
+    {
+// Variable global usada para registrar el número de pulsaciones
+      var x;
+// -------------------------
+// Cuando un cuadro de texto obtiene el foco resetamos las pulsaciones
+      $("input").focus(function() {
+        x = 0;
+      });
+      // -------------------------
+// Cuando un cuadro de texto obtiene el foco borramos el log
+      $("input").blur(function() {
+        $("#div1").html(" ");
+      });
+// -------------------------
+// tecla presionada en 'texto1'
+      $("#texto1").keypress(function() {
+        x = x + 1;
+        $("#div1").text( "[" + x + "] pulsaciones en el componente 'texto1'" );
+      });
+// -------------------------
+// tecla presionada en 'texto2'
+      $("#texto2").keypress(function(event)
+      {
+// Comprobamos si se pulsó Enter (código 13)
+        if( event.which == 13 )
+        {
+          $("#div1").text("Pulsaste la tecla Enter en 'texto2'");
+        }
+        else
+        {
+          $("#div1").text("Pulsaste la tecla cuyo código es [" + event.which + "] en 'texto2'");
+        }
+      });
+// -------------------------
+// tecla pulsada en 'texto3'
+      $("#texto3").keydown(function(event)
+      {
+        x = x + 1;
+        $("#div1").text( "[" + x + "] pulsaciones en el componente 'texto3', el código de la última es [" + event.which + "]" );
+      });
+// -------------------------
+// tecla levantada en 'texto4'
+      $("#texto4").keyup(function() {
+        $("#div1").text("Tecla levantada en el componente 'texto4'");
+      });
+    });
+  </script>
+</head>
+<body>
+<div id="div1"> </div>
+<label for="texto1">Realiza varias pulsaciones o mantén pulsada cualquier tecla (usa también teclas especiales):</label>
+<input type="text" id="texto1" value="" /><br />
+<label for="texto2">Escribe un carácter y luego pulsa Enter:</label>
+<input type="text" id="texto2" value="" /><br />
+<label for="texto3">Realiza varias pulsaciones o mantén pulsada cualquier tecla (usa también teclas especiales):</label>
+<input type="text" id="texto3" value="" /><br />
+<label for="texto4">Mantén presionada una tecla durante unos segundos:</label>
+<input type="text" id="texto4" />
+</body>
+</html>

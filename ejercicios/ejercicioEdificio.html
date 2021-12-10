@@ -7,7 +7,10 @@
 <body>
 
 
-
+<h1 id="titulo"></h1>
+<div id="cajaGrande">
+    <form action="" id="caja"></form>
+</div>
 <script>
   //hacer los setters del edificio
   //funcion mostrar una planta
@@ -15,25 +18,147 @@
   //eliminar un dueño
   //mostrar el edificio en una tabla o en una consola el piso con el nombre del dueño
 
+ const tit = document.getElementById('titulo');
+  const caja = document.getElementById('caja');
+  class casa{
+      constructor (){
+          this.letra = '';
+          this.duenio = '';
+      }
+
+      setLetra(letra){
+          this.letra = letra;
+      }
+
+      setPropietarioCasa(value){
+          this.duenio = value;
+      }
+
+  };
+
 
   class edificio {
 
     constructor (){
-      this.calle = '';
-      this.numero = '';
-      this.codigoPostal = '';
-      this.plantas = []
+      this._calle = '';
+      this._numero = '';
+      this._codigoPostal = '';
+      this._plantas = [];
     }
 
+        crearPlantas (fila, columna){
+
+            for(let x = 0; x<fila; x++){
+                let asciiLetter = 65;
+                let setterPlantas =[];
+                for(let y = 0; y<columna;y++){
+                    let casaAux = new casa();
+                    casaAux.setLetra(String.fromCharCode(asciiLetter));
+                    asciiLetter++;
+                    setterPlantas.push(casaAux);
+                }
+                this._plantas.push(setterPlantas);
+            }
+        }
+
+      setPropietario (fila, columna, propietario){
+        this._plantas[fila][columna].setPropietarioCasa(propietario);
+      }
+
+      getNumPlantas (){
+        return this._plantas.length;
+      }
+
+      getNumPuertas(){
+        return this._plantas[0].length;
+      }
+
+      getCalle() {
+          return this._calle;
+      }
+
+      setCalle(value) {
+          this._calle = value;
+      }
+
+      getNumero() {
+          return this._numero;
+      }
+
+      setNumero(value) {
+          this._numero = value;
+      }
+
+      getCodigoPostal() {
+          return this._codigoPostal;
+      }
+
+      setCodigoPostal(value) {
+          this._codigoPostal = value;
+      }
+
+      getPlantas() {
+          return this._plantas;
+      }
+
+      setPlantas(value) {
+          this._plantas = value;
+      }
   };
 
-  class planta{
 
-    constructor (){
-      this.letra = '';
-      this.dueño = '';
-    }
-  };
+
+
+
+  let edificioUno = new edificio();
+  edificioUno.setCalle('Avd. España');
+  edificioUno.setNumero(32);
+  edificioUno.setCodigoPostal(51001);
+  edificioUno.crearPlantas(7,4);
+
+  tit.innerHTML+=edificioUno.getCalle()+edificioUno.getNumero()+edificioUno.getCodigoPostal()+edificioUno.getPlantas()+edificioUno.getNumPlantas();
+
+
+  let crearSelect = () => {
+      for(let i =0; i<edificioUno.getNumPlantas();i++){
+        let titPlanta = document.createElement('h3');
+        let select = document.createElement('select');
+        let texto = document.createElement('input');
+        texto.setAttribute('type', 'text');
+
+        texto.style.display = 'none';
+
+
+        let opt = document.createElement('option');
+        let enviar = document.createElement('input');
+        let asciiLetterA = 65;
+          opt.value = 0;
+          opt.innerHTML = 'Seleccione una letra';
+          select.appendChild(opt);
+          for (let y = 0;y<edificioUno.getNumPuertas();y++ ){
+              let optDentro = document.createElement('option');
+              optDentro.value = i+" "+y;
+              optDentro.innerHTML = String.fromCharCode(asciiLetterA);
+              asciiLetterA++;
+              select.appendChild(optDentro);
+              texto.setAttribute('id', 'nombrePropietario'+i+""+y);
+              select.setAttribute("onchange", `mostrarTexto(${'nombrePropietario'+i+""+y})`);
+              //select.onchange = mostrarTexto('nombrePropietario'+i+""+y);
+          }
+        enviar.setAttribute('type', 'submit');
+        titPlanta.innerHTML='Planta '+(i+1);
+        caja.append(titPlanta);
+        caja.append(select);
+        caja.append(enviar);
+        caja.append(texto);
+      }
+  }
+
+  let mostrarTexto = (idCajaTexto) =>{
+      //document.getElementById(idCajaTexto).style.display = element.value == 1 ? 'block' : 'none';
+      idCajaTexto.style.display= "block";
+  }
+  crearSelect();
 
 </script>
 </body>
