@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -8,6 +9,7 @@
 
 
 <h1 id="titulo"></h1>
+
 <div id="cajaGrande">
     <form action="" id="caja"></form>
 </div>
@@ -20,6 +22,7 @@
 
  const tit = document.getElementById('titulo');
   const caja = document.getElementById('caja');
+  let cajaActiva = "aux";
   class casa{
       constructor (){
           this.letra = '';
@@ -130,7 +133,7 @@
 
 
         let opt = document.createElement('option');
-        let enviar = document.createElement('input');
+        let enviar = document.createElement('button');
         let asciiLetterA = 65;
           opt.value = 0;
           opt.innerHTML = 'Seleccione una letra';
@@ -146,6 +149,7 @@
               //select.onchange = mostrarTexto('nombrePropietario'+i+""+y);
           }
         enviar.setAttribute('type', 'submit');
+        enviar.innerHTML='Enviar';
         titPlanta.innerHTML='Planta '+(i+1);
         caja.append(titPlanta);
         caja.append(select);
@@ -154,10 +158,38 @@
       }
   }
 
-  let mostrarTexto = (idCajaTexto) =>{
+  let mostrarTexto = (idCajaTexto) =>{ //se recogerá el objeto input entero.
       //document.getElementById(idCajaTexto).style.display = element.value == 1 ? 'block' : 'none';
-      idCajaTexto.style.display= "block";
+      //console.log(idCajaTexto.id);
+      cajaActiva = idCajaTexto.id;
+      $('#'+idCajaTexto.id).css('display', 'block');
+
+      //idCajaTexto.style.display= "block";
   }
+
+  $(document).ready(function (){
+      $(document).click(function(){
+          console.log($(':empty[id^=nombre]').each(function (i, item){this}));
+          $(':empty[id^=nombre]').each(function (){
+              //console.log($(this).first());
+              $(this).blur(function (){
+                  alert("fuera focus");
+                  if(!$(this).val()){
+                      $(this).css('display', 'none');
+                  }
+              });
+          })
+
+      })
+      /*if(!$('#'+cajaActiva).value){
+          $('#'+cajaActiva).css('display', 'none');
+      }*/
+
+  });
+
+
+
+
   crearSelect();
 
 </script>

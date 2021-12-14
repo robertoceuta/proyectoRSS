@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="micapa" style="background-color: #cc7700; color:f0f; padding:10px; width: 300px; height: 130px; position: absolute; top: 10px; left: 500px;">
+    <ul>
+        <li>Probaremos el callback</li>
+        <li>Se ejecutarán unas funciones detrás de otras</li>
+        <li>Sirva, para encadenar efectos</li>
+    </ul>
+</div>
+<br>
+<br>
+<a href="#" id="pilallamadas">Realizar cambios sin callback</a>
+<br>
+(Se hacen con una secuencia de llamadas a funciones)
+
+
+<script>
+
+/*$('#micapa').click(function (){
+    $("#micapa").fadeOut(3000);
+    $("#micapa").css({top: 400, left:300});
+    $("#micapa").fadeIn(3000);
+})*/
+
+$("#micapa").fadeOut(2000, function(){
+    $("#micapa").css({'top': 400, 'left':300});
+    $("#micapa").fadeIn(2000);
+});
+
+$("button").click(function(){
+    $("p").hide("slow", function(){
+        alert("The paragraph is now hidden");
+    });
+});
+
+
+</script>
+</body>
+</html>

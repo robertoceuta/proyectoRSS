@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        .caja{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Alfabeto</title>
+</head>
+<body>
+    <div class="container caja">
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Introduce una cadena de texto</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+
+
+            <button  class="btn btn-primary" id="boton">Calcular la posición</button>
+            <div class="mb-3">
+                <h1 class="display-6" id="solucion">El resultado aparecerá aqui.</h1>
+            </div>
+
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        let normalizar = (text) => text.normalize('NFD').replace(/([aeio])\u0301|(u)[\u0301\u0308]/gi,"$1$2") .normalize();
+
+        console.log(normalizar('éáíóú'));
+
+        function posicion(text) {
+            let recorre;
+            let cadena = [];
+            let alfabeto = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+            for (let i = 0; i < text.length; i++){
+                recorre = text[i].toUpperCase();
+                if (alfabeto.indexOf(recorre) !== -1){
+                    cadena.push(alfabeto.indexOf(recorre)+1);
+                }
+            }
+            return cadena;
+        }
+        console.log(posicion('é'));
+
+        let texto ="";
+        $('#boton').click(function (){
+            console.log($('#exampleInputEmail1').val());
+            texto = $('#exampleInputEmail1').val();
+            console.log(texto);
+            texto = normalizar(texto);
+            console.log(texto);
+            $('#solucion').text(posicion(texto));
+        })
+    </script>
+</body>
+</html>
