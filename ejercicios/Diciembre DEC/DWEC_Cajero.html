@@ -21,7 +21,7 @@
 <body>
     <div class="container caja">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Cuánto dinero desea sacar (entre 40€ y 10.000€)</label>
+                <label for="dinero" class="form-label">Cuánto dinero desea sacar (entre 40€ y 10.000€)</label>
                 <input type="email" class="form-control" name="exampleInputEmail1" aria-describedby="emailHelp" id="dinero">
             </div>
             <div class="mb-3">
@@ -39,14 +39,8 @@
 
 
         $('#calcular').click(function (){
-            let cajainero = document.getElementById('dinero');
             let cajaSolucion = document.getElementById('solucion');
-            let restante = 0;
-            let cantidad = 0;
-            let billeteCien = 0;
-            let billeteCincuenta = 0;
-            let billeteVeinte = 0;
-            let resultado = "";
+            let cantidad = 0, billeteCien = 0,billeteCincuenta = 0, billeteVeinte = 0, resultado = "";
             let arrayBilletes = [];
             cantidad = $('#dinero').val();
             if(cantidad >= 40 && cantidad <=10000 && cantidad%10==0) {
@@ -62,7 +56,6 @@
                         cantidad -= 20;
                         billeteVeinte += 1;
                     }
-
                 }
                 arrayBilletes.push(billeteCien, billeteCincuenta, billeteVeinte);
                 resultado = "Necesitas \n " +billeteCien+" billete(s) de cien, \n"+
