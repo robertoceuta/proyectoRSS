@@ -25,26 +25,97 @@
 </head>
 <body>
 
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Información de la casa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMostrarPropietario" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="modalMostrarPropietario" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Mostrar propietario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center" >
+                <p id="infoPropietario"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#modalModificarPropietario" data-bs-toggle="modal">Cambiar nombre propietario.</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalModificarPropietario" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="modalModificarPropietario" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2">Modificar Propietario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="nombrePropietario" class="form-label">Nombre del nuevo propietario</label>
+                <input type="text" class="form-control" name="nombrePropietario"  id="nombrePropietario">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-dismiss="modal" id="btnGuardarNombre" onclick="btnModal(idBotonClickado)">Guardar nombre</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
     <div class="caja">
         <div class="mb-3">
-            <label for="filas" class="form-label">Número de filas de tu edificio</label>
-            <input type="numer" class="form-control valoresEdificio" name="filas" aria-describedby="emailHelp" id="filas">
+            <label for="calle" class="form-label">Calle</label>
+            <input type="text" class="form-control valoresEdificio" name="calle" id="calle">
         </div>
         <div class="mb-3">
-            <label for="columnas" class="form-label">Número de columnas de tu edificio</label>
+            <label for="numero" class="form-label">Número</label>
+            <input type="number" class="form-control valoresEdificio" name="numero" id="numero">
+        </div>
+        <div class="mb-3">
+            <label for="cp" class="form-label">Código Postal</label>
+            <input type="number" class="form-control valoresEdificio" name="cp" id="cp">
+        </div>
+        <div class="mb-3">
+            <label for="filas" class="form-label">Número de plantas de tu edificio</label>
+            <input type="number" class="form-control valoresEdificio" name="filas" id="filas">
+        </div>
+        <div class="mb-3">
+            <label for="columnas" class="form-label">Número de puertas en cada planta de tu edificio</label>
             <input type="number" class="form-control valoresEdificio" name="columnas" id="columnas">
         </div>
         <button class="btn btn-primary" id="btnCrearEdificio">Submit</button>
     </div>
 
     <div class="cajaTabla">
-        <table class="table table-striped">
+        <table class="table table-striped text-center align-middle">
             <thead>
-            <tr>
+            <tr id="rowPrimera">
                 <th scope="col">Piso/Puerta</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="cuerpoTabla">
             </tbody>
         </table>
     </div>
@@ -52,19 +123,223 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>
+        let cuerpoTabla = document.getElementById('cuerpoTabla');
+        let modalModificarPropietario = new bootstrap.Modal(document.getElementById("modalModificarPropietario"), {});
+        let modalMostrarPropietario = new bootstrap.Modal(document.getElementById("modalMostrarPropietario"), {});
+        let cajaNombrePropietario = $('#nombrePropietario');
+        let btnGuardarNombre = document.getElementById('btnGuardarNombre');//$('#btnGuardarNombre');
+        let parrafoInfo = $('#infoPropietario');
+        let idBotonClickado = 0;
+        let btnPropietarios = 0;
+        class casa{
+            constructor (){
+                this.letra = '';
+                this.duenio = '';
+            }
+
+            setLetra(letra){
+                this.letra = letra;
+            }
+
+            setPropietarioCasa(value){
+                this.duenio = value;
+            }
+
+            getPropietarioCasa(){
+                return this.duenio;
+            }
+
+        };
+
+        class edificio {
+
+            constructor (){
+                this._calle = '';
+                this._numero = '';
+                this._codigoPostal = '';
+                this._plantas = [];
+            }
+
+            crearPlantas (fila, columna){
+
+                for(let x = 0; x<fila; x++){
+                    let row = document.createElement('tr');
+                    cuerpoTabla.append(row);
+                    let th = document.createElement('th');
+                    th.setAttribute('scope', 'row');
+                    th.innerHTML = String(x+1);
+                    row.append(th);
+                    let asciiLetter = 65;
+                    let setterPlantas =[];
+                    for(let y = 0; y<columna;y++){
+                        if(y==0 && x==0){
+                            let primerRow = document.getElementById('rowPrimera');
+                            let letrasAscii = 65;
+                            let control =0;
+                            for(let c = 0; c<columna; c++){
+                                let thLetras = document.createElement('th');
+                                thLetras.setAttribute('scope', 'col');
+                                thLetras.innerHTML = String.fromCharCode(letrasAscii);
+                                primerRow.append(thLetras);
+                                letrasAscii++;
+                                console.log(control);
+                                control++;
+                            }
+                        }
+                        let td = document.createElement('td')
+                        let casaAux = new casa();
+                        let botonCasa = document.createElement('button');
+                        botonCasa.setAttribute('class', 'btn btn-success btnPropietarios');
+                        botonCasa.setAttribute('id', ""+x+y);
+                        botonCasa.setAttribute('onclick', "recurperarId(this.id)");
+                        botonCasa.innerHTML='Sin propietario';
+                        botonCasa.addEventListener('click',function (){
+                            if(document.getElementById(this.id).firstChild.textContent == 'Sin propietario'){
+                            modalModificarPropietario.show();
+                            }else{
+                                parrafoInfo.text("El edificio sito en la calle "+edificioObjeto.getCalle()+" con el número "+edificioObjeto.getNumero()+
+                                    " con el código postal "+edificioObjeto.getCodigoPostal()+" tiene una casa en el piso "+(parseInt(this.id.charAt(0))+1)+" con letra "+String.fromCharCode(65+parseInt(this.id.charAt(1)))
+                                    +" que pertenece a "+edificioObjeto._plantas[parseInt(this.id.charAt(0))][parseInt(this.id.charAt(1))].getPropietarioCasa());
+                                modalMostrarPropietario.show();
+                            }
+                        });
+                        row.append(td); td.append(botonCasa);
+                        casaAux.setLetra(String.fromCharCode(asciiLetter));
+                        asciiLetter++;
+                        setterPlantas.push(casaAux);
+                    }
+                    this._plantas.push(setterPlantas);
+                }
+
+            }
+
+
+            setPropietario (fila, columna, propietario){
+                this._plantas[fila][columna].setPropietarioCasa(propietario);
+            }
+
+            getNumPlantas (){
+                return this._plantas.length;
+            }
+
+            getNumPuertas(){
+                return this._plantas[0].length;
+            }
+
+            getCalle() {
+                return this._calle;
+            }
+
+            setCalle(value) {
+                this._calle = value;
+            }
+
+            getNumero() {
+                return this._numero;
+            }
+
+            setNumero(value) {
+                this._numero = value;
+            }
+
+            getCodigoPostal() {
+                return this._codigoPostal;
+            }
+
+            setCodigoPostal(value) {
+                this._codigoPostal = value;
+            }
+
+            getPlantas() {
+                return this._plantas;
+            }
+
+            setPlantas(value) {
+                this._plantas = value;
+            }
+        };
+
+
+
         let btnCrearEdificio = $('#btnCrearEdificio');
         let filas = 0, columnas = 0;
+        let edificioObjeto = new edificio();
         btnCrearEdificio.click(function (){
-            filas = $('.valoresEdificio:first').val();
-            columnas = $('.valoresEdificio:last').val();
+            filas = $('.valoresEdificio').eq(3).val();
+            columnas = $('.valoresEdificio').eq(4).val();
+            console.log(filas,columnas);
+            edificioObjeto.setCalle($('.valoresEdificio').eq(0).val());
+            edificioObjeto.setNumero($('.valoresEdificio').eq(1).val());
+            edificioObjeto.setCodigoPostal($('.valoresEdificio').eq(2).val());
+            edificioObjeto.crearPlantas(filas, columnas);
             $('.caja').css('display', 'none');
             crearEdificio(filas, columnas);
         });
 
+
+
         let crearEdificio = (filas, columnas) => {
-            let
+
             $('.cajaTabla').css('display', 'initial');
         }
+
+
+        let returnNombre = () => {
+            if(cajaNombrePropietario.val()!=null){
+                return cajaNombrePropietario.val();
+            }
+
+        }
+        let recurperarId = (idBoton) => {
+            idBotonClickado = idBoton;
+            /*i*/
+
+
+        }
+        function accionesPropietario(idBotonClick){
+            let idBtn = idBotonClick;
+            let botonPulsado = document.getElementById(idBtn);
+            console.log (edificioObjeto._plantas[parseInt(idBtn.charAt(0))][parseInt(idBtn.charAt(1))].getPropietarioCasa())
+            console.log()
+            console.log(botonPulsado);
+            console.log(parseInt(idBtn.charAt(0)));
+            botonPulsado.addEventListener('click', function (){
+                if(botonPulsado.innerHTML== 'Sin propietario'){
+                    modalModificarPropietario.show();
+                    btnGuardarNombre.click(function (){
+                        edificioObjeto.setPropietario(parseInt(idBtn.charAt(0)), parseInt(idBtn.charAt(1)), cajaNombrePropietario.val());                               //_plantas[parseInt(idBtn.charAt(0))][parseInt(idBtn.charAt(1))].setPropietarioCasa(cajaNombrePropietario.val());
+                        console.log(edificioObjeto._plantas[parseInt(idBtn.charAt(0))][parseInt(idBtn.charAt(1))].getPropietarioCasa());
+                        botonPulsado.innerHTML = cajaNombrePropietario.val();
+                        cajaNombrePropietario.val("");
+                    })
+
+                }else{
+                    parrafoInfo.text("El edificio sito en la calle "+edificioObjeto.getCalle()+" con el número "+edificioObjeto.getNumero()+
+                        " con el código postal "+edificioObjeto.getCodigoPostal()+" pertenece a "+edificioObjeto._plantas[parseInt(idBtn.charAt(0))][parseInt(idBtn.charAt(1))].getPropietarioCasa());
+                    modalMostrarPropietario.show();
+                }
+            })
+
+
+        }
+
+        function btnModal(btnId){
+            if(cajaNombrePropietario.val()!=""){
+                edificioObjeto.setPropietario(parseInt(btnId.charAt(0)), parseInt(btnId.charAt(1)), cajaNombrePropietario.val());                               //_plantas[parseInt(idBtn.charAt(0))][parseInt(idBtn.charAt(1))].setPropietarioCasa(cajaNombrePropietario.val());
+                console.log(edificioObjeto._plantas[parseInt(btnId.charAt(0))][parseInt(btnId.charAt(1))].getPropietarioCasa());
+                document.getElementById(btnId).firstChild.textContent = cajaNombrePropietario.val();
+                cajaNombrePropietario.val("");
+            }
+        }
+
+        function mostrarDireccion(){
+            return edificioObjeto.getCalle()+edificioObjeto.getNumero()+edificioObjeto.getCodigoPostal();
+        }
+
+        function mostrarDireccionPropietario(planta, puerta){
+            
+        }
+
 
     </script>
 </body>
